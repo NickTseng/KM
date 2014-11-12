@@ -1,3 +1,6 @@
 <%= form_for @post do |form| %>
-  <%= form.cktext_area :title, :class => 'someclass', :ckeditor => {:language => 'US'} %>
+   <%= form.label :title %>:
+   <%= form.text_field :title %><br />
+   <%= form.cktext_area :content, :class => 'someclass', :ckeditor => {:language => 'US'} %>
+   <%= form.submit %>
 <% end %>
