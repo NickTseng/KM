@@ -1,7 +1,12 @@
 class PostsController < ApplicationController
 
   def index
+
+    if params[:tag]
+    @posts = Post.tagged_with(params[:tag])
+    else
     @posts = Post.all
+    end
   end
 
   def new
@@ -42,7 +47,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title,:content)
+    params.require(:post).permit(:title,:content,:tag_list)
   end
 
 end

@@ -5,18 +5,23 @@
     <td>title</td>
     <td>content</td>
     <td>create_at</td>
+    <td>Tags</td>
     <td>action</td>
   </tr>
   <%@posts.each do |post|%>
   <tr>
     <td><%=post.title%></td>
-    <td><%=post.content%></td>
+    <td><%=raw post.content%></td>
     <td><%=post.created_at%></td>
+    <td>
+     <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+    </td>
     <td>
       <%=link_to "Edit",edit_post_path(post)%> | 
       <%=link_to "Show",post_path(post)%> | 
       <%=link_to "Delete",post_path(post),:method => "DELETE"%> 
     </td>
   </tr>
+
   <%end%>
 </table>
