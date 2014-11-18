@@ -1,21 +1,8 @@
-<%= form_for(@post) do |f| %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-  <%= f.label :tag_list, "Tags (separated by commas)" %><br />
-  <%= f.text_field :tag_list %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= cktext_area :content, :ckeditor => {:language => 'US'} %>
-  </div>
-  <div class="actions">
-    <%= f.submit :class => 'btn' %>
-  </div>
-
-
-
-<% end  %>
+<%= form_for @post do |form| %>
+   <%= form.label :title %>:
+   <%= form.text_field :title %>
+   <%= form.label :tag_list, "Tags (separated by commas)" %>
+   <%= form.text_field :tag_list %>
+   <%= form.cktext_area :content, :class => 'someclass', :ckeditor => {:language => 'US'} %>
+   <%= form.submit %>
+<% end %>
