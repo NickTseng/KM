@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
 
-  def index
+  before_filter :log_impression, :only=>[:show]
 
+  def index
     if params[:tag]
     @posts = Post.tagged_with(params[:tag])
     else
@@ -44,6 +45,10 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
   
+  def log_impression
+    @post = Post.find(params[:id])
+    @post.impressions.create(ip_address: request.remote_ip,post_id: params[:id])
+  end
 
 
   private
