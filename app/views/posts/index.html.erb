@@ -1,14 +1,17 @@
 
 
 
-<%=link_to "New",new_post_path,class: "btn btn-info"%>
+<%=link_to "新增",new_post_path,class: "btn btn-lg btn-info"%>
+<br><br>
 <table class="table table-hover table-bordered">
-  <tr>
-    <td>title</td>
-    <td>create_at</td>
-    <td>Tags</td>
-    <td>action</td>
-  </tr>
+  <thead>
+    <tr>
+      <th>標題</th>
+      <th>加入時間</th>
+      <th>標籤</th>
+      <th>動作</th>
+    </tr>
+  </thead>
   <%@posts.each do |post|%>
   <tr>
     <td><%=post.title%></td>
@@ -17,9 +20,9 @@
      <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
     </td>
     <td>
-      <%=link_to "Edit",edit_post_path(post)%> | 
-      <%=link_to "Show",post_path(post)%> | 
-      <%=link_to "Delete",post_path(post),:method => "DELETE" , data: { confirm: 'Are you sure?' } %> 
+      <%=link_to "修改",edit_post_path(post)%> | 
+      <%=link_to "檢視",post_path(post)%> | 
+      <%=link_to "刪除",post_path(post),:method => "DELETE" , data: { confirm: 'Are you sure?' } %> 
     </td>
   </tr>
 
