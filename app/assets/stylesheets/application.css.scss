@@ -16,3 +16,18 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.landing-menu{
+  width: 100%;
+  background-color:rgba(0,0,0,0.75);
+  position: fixed;
+}
+.landing-menu .nav-pills{
+  margin-bottom: 0;
+}
+.container{
+  padding-top: 60px;
+}
+.landing-section{
+  background-color: #e6e6e6;
+}
