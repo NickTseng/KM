@@ -13,7 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20141119120456) do
 
-
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
     t.string   "data_content_type"
