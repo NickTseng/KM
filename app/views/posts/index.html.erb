@@ -1,6 +1,4 @@
 
-
-
 <%=link_to "新增",new_post_path,class: "btn btn-lg btn-info"%>
 <br><br>
 <table class="table table-hover table-bordered">
@@ -10,6 +8,8 @@
       <th>加入時間</th>
       <th>標籤</th>
       <th>瀏灠次數</th>
+      <th>Like</th>
+      <th>Like 次數</th>
       <th>動作</th>
     </tr>
   </thead>
@@ -23,6 +23,13 @@
     </td>
     <td>
      <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+    </td>
+    <td>
+     <%= link_to "+1",like_post_path(post)%>
+     <%= link_to "-1",unlike_post_path(post)%>
+    </td>
+    <td>
+     <%= post.votes_for.size%>
     </td>
     <td>
       <%=link_to "修改",edit_post_path(post)%> | 

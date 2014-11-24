@@ -35,6 +35,8 @@ gem 'paperclip'
 gem 'bootstrap-sass'
 
 gem 'acts-as-taggable-on'
+gem 'acts_as_votable'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

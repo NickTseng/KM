@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   
-  resources :posts
+  resources :posts do
+    member do
+      get "like"
+      get "unlike"
+    end
+  end
   resources :blogs
 
   get 'tags/:tag', to: 'posts#index', as: :tag
