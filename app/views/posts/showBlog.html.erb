@@ -10,4 +10,14 @@
   <%= raw @post.content %>
 </p>
 
-<%= link_to 'Back to blog', blogs_path %>
+        <p class="lead">
+          by
+          Create User (todo)
+          (<%= @post.impression_count %>)
+        <i class="fa fa-thumbs-o-up"></i>
+        <i class="fa fa-thumbs-o-down"></i>
+
+<div>
+	<%= link_to 'Back to blog', blogs_path %>	
+</div>
+
