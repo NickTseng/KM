@@ -36,6 +36,7 @@ gem 'bootstrap-sass'
 
 gem 'acts-as-taggable-on'
 gem 'acts_as_votable'
+gem "font-awesome-rails"
 
 
 # Use ActiveModel has_secure_password
