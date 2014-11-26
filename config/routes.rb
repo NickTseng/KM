@@ -9,11 +9,15 @@ Rails.application.routes.draw do
       get "unlike"
     end
   end
+  
   resources :blogs
 
   get 'tags/:tag', to: 'posts#index', as: :tag
 
   root 'blogs#index'
+  
+  #/posts/:id(.:format) posts#show
+  get 'posts/:id/showBlog' => 'posts#showBlog' , as: :postShowBlog
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

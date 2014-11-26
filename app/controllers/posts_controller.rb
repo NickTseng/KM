@@ -64,6 +64,10 @@ class PostsController < ApplicationController
     @post.impressions.create(ip_address: request.remote_ip,post_id: params[:id])
   end
 
+  #show by blog
+  def showBlog
+    @post = Post.find(params[:id])
+  end
 
   private
 
