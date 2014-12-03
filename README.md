@@ -19,5 +19,11 @@ v0.1 初步project打造
  v0.3
   1. 完成 blog view 所有功能
 
+ V0.4
+  +1 -1 AJAX  METHOD
+  POSTS MODEL 要有 CREATE USER
+  BLOG 分頁 , 左邊 WIDGET 最新五筆 OR 最近熱門 
+
+
 
    
