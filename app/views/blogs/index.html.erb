@@ -1,70 +1,67 @@
 <!-- Page Content -->
-<div class="container">
+<div class="container_blogs">
   <div class="row">
     <!-- Blog Entries Column -->
     <div class="col-md-8">
       <h1 class="page-header">
-        Blog Style
-        <small>Secondary Text</small>
+        個人文章
+        <!-- <small>Secondary Text</small> -->
       </h1>
       <%@posts.each do |post|%>
-        <!-- First Blog Post -->
-        <h2>
-          <%=link_to post.title, postShowBlog_path(post)%>
-        </h2>
-        <p class="lead">
-          by
-          Create User (todo)
-          (<%=post.impression_count%>)
-        <i class="fa fa-thumbs-o-up"></i>
-        <i class="fa fa-thumbs-o-down"></i>
+        <div class="well">
+          <!-- First Blog Post -->
+          <h2>
+            <%=link_to post.title, postShowBlog_path(post)%>
+          </h2>
+          <p class="lead">
+            by Create User (todo)
+            (<%=post.impression_count%>)
+            <i class="fa fa-thumbs-o-up"></i>
+            <i class="fa fa-thumbs-o-down"></i>
+          </p>
+          <p><span class="glyphicon glyphicon-time"></span>
+            <%=post.created_at%></p>
+          <hr>
+          <p>
+            <%=raw post.content%>
+          </p>
 
-        </p>
-        <p><span class="glyphicon glyphicon-time"></span>
-         <%=post.created_at%></p>
-        <hr>
-        <p>
-          <%=raw post.content%>
-        </p>
-        <a class="btn btn-primary" href="#">Read More
-          <span class="glyphicon glyphicon-chevron-right"></span></a>
-        <hr>
+          <%=link_to "Read More", postShowBlog_path(post), :class => "btn btn-primary" %>
+        </div>
       <%end%>
       <!-- Pager -->
-      <ul class="pager">
+      <!-- <ul class="pager">
         <li class="previous">
           <a href="#">&larr; Older</a>
         </li>
         <li class="next">
           <a href="#">Newer &rarr;</a>
         </li>
-
-      </ul>
+      </ul> -->
     </div>
     <!-- Blog Sidebar Widgets Column -->
     <div class="col-md-4">
       <!-- Blog Search Well -->
       <div class="well">
         <h4>Blog Search</h4>
-      <!--
+        <!--
         <%= search_form_for @q, url: blogs_path do |f| %>
           <%= f.search_field :title_or_content_cont, :class=>"form-control" %>
           <%= f.submit 'save', :class=>"btn" %>
         <% end %>
       -->
         <%= search_form_for @q, url: blogs_path do |f| %>
-        <div class="input-group">  
-          <%= f.search_field :title_or_content_cont, :class=>"form-control" %>
-          <!-- <input type="text" class="form-control"> -->
-
-          <%= f.submit 'save', :id=>"searchBtn", :class=>"hidden" %>
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button">
-              <span class="glyphicon glyphicon-search"
+          <div class="input-group">
+            <%= f.search_field :title_or_content_cont, :class=>"form-control" %>
+            <!-- <input type="text" class="form-control"> -->
+            <%= f.submit 'save', :id=>"searchBtn", :class=>"hidden" %>
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">
+                <span class="glyphicon glyphicon-search"
                     onclick="$('#searchBtn').click();"></span>
-            </button>
-          </span>
-        </div>
+              </button>
+            </span>
+          </div>
         <% end %>
         <!-- /.input-group -->
       </div>
@@ -74,13 +71,12 @@
         <div class="row">
           <div class="col-lg-6">
             <ul class="list-unstyled">
-             <div id="tag_cloud">
-              <% tag_cloud Post.tag_counts, %w[s m l] do |tag, css_class| %>
-                <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-              <% end %>
+              <div id="tag_cloud">
+                <% tag_cloud Post.tag_counts, %w[s m l] do |tag, css_class| %>
+                  <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+                <% end %>
+              </div>
             </div>
-            </div>
-            
             <!-- /.col-lg-6 -->
           </div>
           <!-- /.row -->
