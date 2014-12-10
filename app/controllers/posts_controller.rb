@@ -9,6 +9,7 @@ class PostsController < ApplicationController
     else
       @posts = @q.result(distinct: true)
     end
+      @posts = @posts.paginate(:page => params[:page], :per_page => 1)
   end
 
   def like
