@@ -15,10 +15,15 @@
             <%=link_to post.title, postShowBlog_path(post)%>
           </h2>
           <p class="lead">
-            by Create User (todo)
-            (<%=post.impression_count%>)
-            <i class="fa fa-thumbs-o-up"></i>
-            <i class="fa fa-thumbs-o-down"></i>
+            by Create User (todo) (
+            <span id="impression_<%=post.id%>">
+               <%=post.votes_for.size %> 
+            </span>
+            )
+                        <%= link_to "+1",blogslike_path(post), method: :post, confirm: 'Delete?', 'data-message' => 'Are you sure?' , :remote => true , :id => "link_like"%>
+            
+              <i class="fa fa-thumbs-o-up"></i>  
+              <i class="fa fa-thumbs-o-down"></i>
           </p>
           <p><span class="glyphicon glyphicon-time"></span>
             <%=post.created_at%></p>
