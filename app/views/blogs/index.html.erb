@@ -7,6 +7,7 @@
         個人文章
         <!-- <small>Secondary Text</small> -->
       </h1>
+      
       <%@posts.each do |post|%>
         <div class="well">
           <!-- First Blog Post -->
@@ -90,6 +91,8 @@
     </div>
     <!-- /.row -->
     <hr>
+          <div class="col-md-8" id="will_paginate">
+        <%= will_paginate @posts %></div>
     <!-- Footer -->
     <footer>
       <div class="row">
